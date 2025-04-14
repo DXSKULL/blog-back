@@ -10,7 +10,9 @@ import { getMe, login, register } from "./controllers/UserController.js"
 import { create, getAll, getOne, remove, update, getLastTags } from "./controllers/PostController.js"
 import handleValidationErrors from './utils/handleValidationErrors.js';
 
-mongoose.connect(`mongodb+srv://admin:123@cluster0.j8sfs60.mongodb.net/blog?retryWrites=true&w=majority&appName=Cluster0`)
+// "mongodb+srv://admin:123@cluster0.j8sfs60.mongodb.net/blog?retryWrites=true&w=majority&appName=Cluster0"
+
+mongoose.connect(process.env.MONGODB_URI)
     .then(() => console.log(`DB ok`))
     .catch((error) => console.log(`DB error ${error}`))
 
